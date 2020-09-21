@@ -297,4 +297,81 @@
     <link xlink:href="http://www.w3.org/TR/xslt">www.w3.org/TR/xslt</link>
    </para>
   </sect1>
+
+  <sect1 xml:id="check-profile">
+   <title>Checking a Control File</title>
+
+   <para>
+    Depending on the use case, creating an &ay; profile can be difficult,
+    especially if you build a dynamic one using <link
+    linkend="part-dynamic-profiles">rules/classes, ERB templates or
+    pre-scripts</link>. To simplify the testing and debugging process, &ay;
+    offers a <literal>check-profile</literal> command that takes care of
+    fetching, building and, optionally, importing the profile to detect any
+    potential problem.
+   </para>
+
+   <sect2>
+    <title>Basic Checks</title>
+
+    <para>
+     The simplest way to use this command is just to read and validate the profile:
+     <screen>yast2 autoyast check-profile filename=autoinst.xml output=result.xml</screen>
+    </para>
+
+    <para>
+     The <filename>result.xml</filename> file contains the result of evaluating
+     the profile. Bear in mind that, even if you do not use any advanced
+     feature, the content of <filename>autoinst.xml</filename> and
+     <filename>result.xml</filename> may differ. The reason is that &ay; does
+     some clean-up when it processes the profile.
+    </para>
+
+    <para>
+     <literal>check-profile</literal> can deal with remote files too:
+
+     <screen>yast2 autoyast check-profile filename=http://192.168.1.100/autoinst.xml output=result.xml</screen>
+    </para>
+   </sect2>
+
+   <sect2>
+    <title>Running pre-scripts</title>
+
+    <para>
+     Optionally, &ay; is able to run pre-scripts too. In order to enable this feature,
+     you need to set the <literal>run-scripts</literal> to <literal>true</literal>.
+
+     <screen>yast2 autoyast check-profile filename=http://192.168.1.100/autoinst.xml output=result.xml run-scripts=true</screen>
+    </para>
+
+    <warning>
+     <para>
+      Needless to say that you must be careful when running pre-installation
+      scripts as root.
+     </para>
+    </warning>
+   </sect2>
+
+   <sect2>
+    <title>Importing the Profile</title>
+
+    <para>
+     It is possible to face some problems when importing a valid profile, even
+     if it is correct. The reason is that AutoYaST does not perform any logic
+     check when fetching, building and validating the profile.
+    </para>
+
+    <para>
+     To anticipate such problems, the <literal>check-profile</literal> command
+     offers an <literal>import-all</literal> option. If you set this option
+     to <literal>true</literal>, &ay; imports the profile.
+
+     <screen>yast2 autoyast check-profile filename=http://192.168.1.100/autoinst.xml output=result.xml import-all=true</screen>
+    </para>
+
+    <para>
+     Importing the profile is a safe operation and does not alter the underlying system in any way.
+    </para>
+   </sect2>
+  </sect1>
  </chapter>
