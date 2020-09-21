@@ -21,8 +21,8 @@ xml:id="dynamic-profiles">
   <para>
    When dealing with the installation of multiple systems, it might be useful to
    use a single profile (or just a reduced set of them) adapts automatically to
-   each system. In this regard, &ay; offers three different mechanisms to modify the profile at
-   installation time.
+   each system. In this regard, &ay; offers three different mechanisms to modify
+   the profile at installation time.
   </para>
 
   <variablelist>
