@@ -31,12 +31,12 @@ xml:id="erb-templates">
   </para>
 
   <sect1 xml:id="erb">
-   <title>What is <acronym>ERB</acronym>?</title>
+   <title>What is <literal>ERB</literal>?</title>
 
    <para>
-    <acronym>ERB</acronym> stands for <emphasis>Embedded Ruby</emphasis> and
+    <literal>ERB</literal> stands for <emphasis>Embedded Ruby</emphasis> and
     allows to use the power of the Ruby programming language to generate
-    different kind of contents. Using <acronym>ERB</acronym> you can include
+    different kind of contents. Using <literal>ERB</literal> you can include
     some Ruby code in your profiles to adapt them at runtime depending on the
     installation system.
    </para>
