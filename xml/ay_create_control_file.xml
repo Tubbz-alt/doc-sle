@@ -311,6 +311,14 @@
     potential problem.
    </para>
 
+   <note>
+    <para>
+     Although this command uses the same approach as the installation, the
+     results may vary depending on the context: &yast; package versions,
+     architecture, etc.
+    </para>
+   </note>
+
    <sect2>
     <title>Basic Checks</title>
 
@@ -318,7 +326,7 @@
      The simplest way to use this command is just to read and validate the profile:
     </para>
 
-<screen>yast2 autoyast check-profile filename=autoinst.xml output=result.xml</screen>
+<screen>&prompt.sudo; yast2 autoyast check-profile filename=autoinst.xml output=result.xml</screen>
 
     <para>
      The <filename>result.xml</filename> file contains the result of evaluating
@@ -332,7 +340,7 @@
      <literal>check-profile</literal> can deal with remote files too:
     </para>
 
-<screen>yast2 autoyast check-profile filename=http://192.168.1.100/autoinst.xml output=result.xml</screen>
+<screen>&prompt.sudo; yast2 autoyast check-profile filename=http://192.168.1.100/autoinst.xml output=result.xml</screen>
 
    </sect2>
 
@@ -340,16 +348,19 @@
     <title>Running pre-scripts</title>
 
     <para>
-     Optionally, &ay; is able to run pre-scripts too. In order to enable this feature,
-     you need to set the <literal>run-scripts</literal> to <literal>true</literal>.
+     Optionally, &ay; is able to run the scripts that are included in the
+     profile, reporting any error found during the execution. In order to enable
+     this feature, you need to set the <literal>run-scripts</literal> to
+     <literal>true</literal>.
     </para>
 
-<screen>yast2 autoyast check-profile filename=http://192.168.1.100/autoinst.xml output=result.xml run-scripts=true</screen>
+<screen>&prompt.sudo; yast2 autoyast check-profile filename=http://192.168.1.100/autoinst.xml output=result.xml run-scripts=true</screen>
 
     <warning>
      <para>
-      Needless to say that you must be careful when running pre-installation
-      scripts as root.
+      Needless to say that you must be careful when enabling the
+      <literal>run-scripts</literal> option because those scripts will run as
+      root and they may affect the current system.
      </para>
     </warning>
    </sect2>
@@ -365,11 +376,12 @@
 
     <para>
      To anticipate such problems, the <literal>check-profile</literal> command
-     offers an <literal>import-all</literal> option. If you set this option
-     to <literal>true</literal>, &ay; imports the profile.
+     imports the profile and reports problem that it is detected. As it may take
+     a while, you can disable this behavior setting the
+     <literal>import-all</literal> option to <literal>false</literal>.
     </para>
 
-<screen>yast2 autoyast check-profile filename=http://192.168.1.100/autoinst.xml output=result.xml import-all=true</screen>
+<screen>&prompt.sudo; yast2 autoyast check-profile filename=http://192.168.1.100/autoinst.xml output=result.xml import-all=false</screen>
 
     <para>
      Importing the profile is a safe operation and does not alter the underlying system in any way.

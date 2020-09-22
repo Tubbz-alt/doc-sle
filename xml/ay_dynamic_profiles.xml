@@ -50,9 +50,9 @@ xml:id="dynamic-profiles">
      <term>Pre-installation scripts</term>
      <listitem>
       <para>
-       Perhaps the most flexible approach is to use a pre-installation script to
-       modify or even create a brand new profile during installation. <xref
-       linkend="pre-install-scripts"/> describes how to benefit from them.
+       You can use a pre-installation script to modify or even create a brand
+       new profile during installation. <xref linkend="pre-install-scripts"/>
+       describes how to benefit from them.
       </para>
      </listitem>
    </varlistentry>

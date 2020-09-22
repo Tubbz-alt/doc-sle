@@ -27,7 +27,7 @@ xml:id="erb-templates">
   <para>
    In order to activate the ERB processing, the profile must have the extension
    <filename>.erb</filename> (e.g., <filename>autoyast.xml.erb</filename>). Hence,
-   it is not possible to combine rules and ERB templates.
+   it is not possible to combine rules/classes and ERB templates.
   </para>
 
   <sect1 xml:id="erb">
