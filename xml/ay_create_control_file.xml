@@ -349,9 +349,10 @@
 
     <para>
      Optionally, &ay; is able to run the scripts that are included in the
-     profile, reporting any error found during the execution. In order to enable
-     this feature, you need to set the <literal>run-scripts</literal> to
-     <literal>true</literal>.
+     profile, reporting any error found during the execution. This is especially
+     relevant if you are using a pre-installation script to modify the profile.
+     To enable this feature, you need to set the <literal>run-scripts</literal>
+     to <literal>true</literal>.
     </para>
 
 <screen>&prompt.sudo; yast2 autoyast check-profile filename=http://192.168.1.100/autoinst.xml output=result.xml run-scripts=true</screen>
